@@ -1,0 +1,34 @@
+set cut_paste_input [stack 0]
+version 12.0 v5
+Group {
+ inputs 0
+ name HDRI2
+ knobChanged "def updateSwitch():\n    k = nuke.thisKnob()\n    if k.name() == 'pulldown':\n        n = nuke.thisNode()\n        with n:\n            switchKnob = nuke.toNode('Switch1').knob('which')\n            switchKnob.setValue(n\['pulldown'].getValue())\nupdateSwitch()"
+ selected true
+ xpos 2312
+ ypos -18152
+ addUserKnob {20 User +DISABLED}
+ addUserKnob {4 pulldown l environment +DISABLED M {indoor hanger horizon user}}
+ pulldown user
+ addUserKnob {41 rotate +DISABLED T Environment1.rotate}
+ addUserKnob {41 intensity +DISABLED T Environment1.intensity}
+
+ addUserKnob {20 "" +DISABLED n -1}
+}
+ BackdropNode {
+  inputs 0
+  name BackdropNode1
+  tile_color 0x7171c600
+  label "ceiling with lights"
+  note_font_size 42
+  xpos 213
+  ypos -987
+  bdwidth 525
+  bdheight 249
+ }
+ Output {
+  name Output1
+  xpos 939
+  ypos -16
+ }
+end_group
