@@ -1,0 +1,5 @@
+ 
+        
+k = nuke.thisKnob()\nif k.name() == 'pulldown':\n    n = nuke.thisNode()\n    with n:\n        switchKnob.nuke.toNode('Switch1').knob('which')\n        switchKnob.setValue(n['pulldown'].value())
+
+
